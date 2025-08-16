@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakers Legacy | Your YouTube Channel</title>
+    <style>
+        :root {
+            --lakers-purple: #552583;
+            --lakers-gold: #FDB927;
+            --lakers-white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--lakers-purple), #3a1a6a);
+            color: var(--lakers-gold);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--lakers-gold);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-style: italic;
+            color: var(--lakers-white);
+        }
+        
+        nav {
+            background-color: var(--lakers-gold);
+            padding: 15px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li {
+            margin: 0 20px;
+        }
+        
+        nav a {
+            color: var(--lakers-purple);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #000;
+        }
+        
+        .hero {
+            height: 500px;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://example.com/lakers-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            background-color: var(--lakers-gold);
+            color: var(--lakers-purple);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #e6a91e;
+            transform: scale(1.05);
+        }
+        
+        .content-section {
+            padding: 50px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: var(--lakers-purple);
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: var(--lakers-gold);
+            margin: 15px auto 0;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+        
+        .video-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .video-thumbnail {
+            height: 180px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(253, 185, 39, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--lakers-purple);
+        }
+        
+        .video-date {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .article-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .article-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .article-content {
+            padding: 25px;
+        }
+        
+        .article-title {
+            font-size: 1.5rem;
+            color: var(--lakers-purple);
+            margin-bottom: 15px;
+        }
+        
+        .article-excerpt {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .read-more {
+            color: var(--lakers-gold);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .legacy-section {
+            background-color: var(--lakers-purple);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .player-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+            margin-top: 40px;
+        }
+        
+        .player-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .player-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .player-name {
+            padding: 15px;
+            color: var(--lakers-purple);
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: var(--lakers-purple);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--lakers-gold);
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 10px 0;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Lakers Legacy</div>
+        <div class="tagline">Celebrating the Past, Present & Future of Lakers Basketball</div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#videos">Videos</a></li>
+            <li><a href="#articles">Articles</a></li>
+            <li><a href="#legacy">Lakers Legacy</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero" id="home">
+        <h2>Your Source for Lakers Content</h2>
+        <p>Game highlights, player analysis, and historical moments from the most storied franchise in NBA history.</p>
+        <a href="#videos" class="cta-button">Watch Latest Videos</a>
+    </section>
+    
+    <section class="content-section" id="videos">
+        <h2 class="section-title">Latest Videos</h2>
+        <div class="video-grid">
+            <!-- Video 1 -->
+            <div class="video-card">
+                <div class="video-thumbnail" style="background-image: url('https://example.com/lakers-video1.jpg');">
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="video-info">
+                    <div class="video-title">LeBron's 40-Point Masterclass vs Celtics</div>
+                    <div class="video-date">Posted 2 days ago</div>
+                </div>
+            </div>
+            
+            <!-- Video 2 - Updated to Luka Dončić -->
+            <div class="video-card">
+                <div class="video-thumbnail" style="background-image: url('https://example.com/luka-lakers-highlights.jpg');">
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="video-info">
+                    <div class="video-title">Luka Dončić Dazzles vs Lakers - 35pt Triple-Double</div>
+                    <div class="video-date">Posted 5 days ago</div>
+                </div>
+            </div>
+            
+            <!-- Video 3 -->
+            <div class="video-card">
+                <div class="video-thumbnail" style="background-image: url('https://example.com/lakers-video3.jpg');">
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="video-info">
+                    <div class="video-title">Kobe Bryant Tribute: 81-Point Game Breakdown</div>
+                    <div class="video-date">Posted 1 week ago</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="content-section" id="articles">
+        <h2 class="section-title">Recent Articles</h2>
+        
+        <div class="article-card">
+            <div class="article-image" style="background-image: url('https://example.com/lakers-article1.jpg');"></div>
+            <div class="article-content">
+                <h3 class="article-title">Can the 2024 Lakers Make a Championship Run?</h3>
+                <p class="article-excerpt">Analyzing the current roster's strengths and weaknesses as we approach the playoffs. With LeBron playing at an MVP level and AD staying healthy, this team has the potential to make noise in the postseason.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+        </div>
+        
+        <div class="article-card">
+            <div class="article-image" style="background-image: url('https://example.com/lakers-article2.jpg');"></div>
+            <div class="article-content">
+                <h3 class="article-title">Remembering the 2000 Championship Team</h3>
+                <p class="article-excerpt">A look back at Shaq and Kobe's first championship together. We break down the key moments from that historic season and what made that team so special.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="legacy-section" id="legacy">
+        <h2 class="section-title" style="color: white;">Lakers Legends</h2>
+        <p>Celebrating the players who built the Lakers legacy</p>
+        
+        <div class="player-grid">
+            <!-- Player 1 -->
+            <div class="player-card">
+                <div class="player-image" style="background-image: url('https://example.com/magic.jpg');"></div>
+                <div class="player-name">Magic Johnson</div>
+            </div>
+            
+            <!-- Player 2 -->
+            <div class="player-card">
+                <div class="player-image" style="background-image: url('https://example.com/kobe.jpg');"></div>
+                <div class="player-name">Kobe Bryant</div>
+            </div>
+            
+            <!-- Player 3 -->
+            <div class="player-card">
+                <div class="player-image" style="background-image: url('https://example.com/kareem.jpg');"></div>
+                <div class="player-name">Kareem Abdul-Jabbar</div>
+            </div>
+            
+            <!-- Player 4 -->
+            <div class="player-card">
+                <div class="player-image" style="background-image: url('https://example.com/shaq.jpg');"></div>
+                <div class="player-name">Shaquille O'Neal</div>
+            </div>
+            
+            <!-- Player 5 -->
+            <div class="player-card">
+                <div class="player-image" style="background-image: url('https://example.com/lebron.jpg');"></div>
+                <div class="player-name">LeBron James</div>
+            </div>
+            
+            <!-- Player 6 -->
+            <div class="player-card">
+                <div class="player-image" style="background-image: url('https://example.com/west.jpg');"></div>
+                <div class="player-name">Jerry West</div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="logo">Lakers Legacy</div>
+        <div class="tagline">Purple and Gold Forever</div>
+        
+        <div class="social-links">
+            <a href="#">YouTube</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+        </div>
+        
+        <p>&copy; 2023 Lakers Legacy. All rights reserved.</p>
+    </footer>
+</body>
+</html>
